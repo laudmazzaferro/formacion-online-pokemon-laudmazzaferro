@@ -1,4 +1,5 @@
 import React from 'react';
+import './../styles/Pokemon.scss';
 
 
 
@@ -14,7 +15,7 @@ class Pokemon extends React.Component {
       <ul className="pokemon__types--list">
       {pokemon.types.map(item=>{
         return(
-          <li className="pokemon__type--item"> {item.type.name}</li>
+          <li key={item.type.name} className="pokemon__type--item"> {item.type.name}</li>
         );
       })}
       </ul>

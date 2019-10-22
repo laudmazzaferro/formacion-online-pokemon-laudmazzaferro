@@ -1,4 +1,5 @@
-import React from 'react'
+import React from 'react';
+import './../styles/Filter.scss';
 
 
 class Filter extends React.Component {
@@ -6,7 +7,7 @@ class Filter extends React.Component {
     const {getInputPokemon ,inputPokemon } = this.props
     return (
       <div className="input__container">
-        <label className="input__label" for="input__pokemon"></label>
+        <label className="input__label" htmlFor="input__pokemon"></label>
         <input  className="input__text" placeholder="Pokemon Name.." id="input__pokemon" type="text" name="input__pokemon" onChange={getInputPokemon} value={inputPokemon}/>
       </div>
     );
