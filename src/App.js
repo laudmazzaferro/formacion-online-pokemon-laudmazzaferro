@@ -9,9 +9,11 @@ class App extends React.Component{
   constructor(props){
     super(props);
     this.state={
-      pokemons:[]
+      pokemons:[],
+      inputPokemon:''
     }
     this.getPokemons=this.getPokemons.bind(this);
+    this.getInputPokemon= this.getInputPokemon.bind(this);
   }
 
   componentDidMount(){
@@ -32,17 +34,24 @@ class App extends React.Component{
         pokemons: info,
       });
     })
-}
+  }
+
+  getInputPokemon(event){
+    const newInput= event.currentTarget.value;
+    this.setState({
+      inputPokemon:newInput
+    })
+  }
 
   render (){
-    const {pokemons } = this.state
+    const {pokemons ,inputPokemon } = this.state
     return (
       <div className="App">
         <header className="app_header">
           <h1 className="app__title">Pokemons List</h1>
         </header>
         <main className="app__main">
-          <Filter />
+          <Filter getInputPokemon={this.getInputPokemon} inputPokemon={inputPokemon}/>
           <PokemonsList   pokemons={pokemons}  />
         </main>
         <footer className="app__footer">
