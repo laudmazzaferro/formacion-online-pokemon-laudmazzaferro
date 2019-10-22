@@ -7,7 +7,7 @@ class PokemonList extends React.Component {
   render() {
     const {pokemons , inputPokemon} = this.props
     return (
-      <div>
+      <div className="pokemon__container">
         <ul className="pokemon__list">
           {pokemons
           .filter(pokemon => pokemon.name.toUpperCase().includes(inputPokemon.toUpperCase()))
