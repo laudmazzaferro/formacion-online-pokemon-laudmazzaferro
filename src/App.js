@@ -52,7 +52,7 @@ class App extends React.Component{
         </header>
         <main className="app__main">
           <Filter getInputPokemon={this.getInputPokemon} inputPokemon={inputPokemon}/>
-          <PokemonsList   pokemons={pokemons}  />
+          <PokemonsList   pokemons={pokemons}  inputPokemon={inputPokemon}/>
         </main>
         <footer className="app__footer">
   
