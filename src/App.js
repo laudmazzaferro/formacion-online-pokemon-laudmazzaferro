@@ -3,6 +3,9 @@ import './App.scss';
 import Filter from './components/Filter';
 import PokemonsList from './components/PokemonsList';
 import {fetchPokemons} from './services/fetchPokemons';
+import {Switch , Route} from 'react-router-dom';
+import PokemonDetail from './components/PokemonDetail';
+
 
 
 class App extends React.Component{
@@ -31,7 +34,7 @@ class App extends React.Component{
     })
     .then(info => {
       this.setState({
-        pokemons: info,
+        pokemons: info
       });
     })
   }
@@ -50,10 +53,27 @@ class App extends React.Component{
         <header className="app_header">
           <h1 className="app__title">Pokemons List</h1>
         </header>
-        <main className="app__main">
-          <Filter getInputPokemon={this.getInputPokemon} inputPokemon={inputPokemon}/>
-          <PokemonsList   pokemons={pokemons}  inputPokemon={inputPokemon}/>
-        </main>
+        <Switch>
+          <Route exact path="/" render={() => {
+            return (
+            <main className="app__main">
+            <Filter getInputPokemon={this.getInputPokemon} inputPokemon={inputPokemon}/>
+            <PokemonsList   pokemons={pokemons}  inputPokemon={inputPokemon}/>
+            </main>
+            );
+            }}
+          />
+          <Route path="/pokemon-detail/:chapId" render={routerProps => {
+            return (
+              <PokemonDetail 
+
+              />
+            
+            );
+          }}/>
+
+        </Switch>
+        
         <footer className="app__footer">
   
         </footer>

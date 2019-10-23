@@ -1,6 +1,7 @@
 import React from 'react';
 import Pokemon from './Pokemon';
 import './../styles/PokemonList.scss';
+import {Link} from 'react-router-dom';
 
 
 class PokemonList extends React.Component {
@@ -13,8 +14,11 @@ class PokemonList extends React.Component {
           .filter(pokemon => pokemon.name.toUpperCase().includes(inputPokemon.toUpperCase()))
           .map(pokemon =>{
             return(
+
               <li className="pokemon__item" key={pokemon.name}>
-                <Pokemon pokemon={pokemon}/>
+                <Link  className="pokemon__link" to={`/pokemon-detail/${pokemon.id}`} >
+                  <Pokemon pokemon={pokemon}/>
+                </Link>
               </li>
             );
           })}
