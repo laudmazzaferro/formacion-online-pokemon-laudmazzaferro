@@ -1,10 +1,10 @@
 import React from 'react';
-import './App.scss';
+import {Switch , Route} from 'react-router-dom';
+import {fetchPokemons} from './services/fetchPokemons';
 import Filter from './components/Filter';
 import PokemonsList from './components/PokemonsList';
-import {fetchPokemons} from './services/fetchPokemons';
-import {Switch , Route} from 'react-router-dom';
 import PokemonDetail from './components/PokemonDetail';
+import './App.scss';
 
 
 
@@ -57,7 +57,7 @@ class App extends React.Component{
           <Route exact path="/" render={() => {
             return (
             <main className="app__main">
-            <Filter getInputPokemon={this.getInputPokemon} inputPokemon={inputPokemon}/>
+            <Filter getInputPokemon={this.getInputPokemon} />
             <PokemonsList   pokemons={pokemons}  inputPokemon={inputPokemon}/>
             </main>
             );

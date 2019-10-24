@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import './../styles/Pokemon.scss';
 
 
@@ -22,7 +23,6 @@ class Pokemon extends React.Component {
               );
             })}
           </ul>
-
         </div>
 
       </div>

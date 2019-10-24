@@ -1,17 +1,19 @@
 import React from 'react';
+import {Link} from 'react-router-dom';
+import PropTypes from 'prop-types';
 import Pokemon from './Pokemon';
 import './../styles/PokemonList.scss';
-import {Link} from 'react-router-dom';
+
 
 
 class PokemonList extends React.Component {
   render() {
     const {pokemons , inputPokemon} = this.props
+    const pokemonsFilter =pokemons.filter(pokemon => pokemon.name.toUpperCase().includes(inputPokemon.toUpperCase()))
     return (
       <div className="pokemon__container">
         <ul className="pokemon__list">
-          {pokemons
-          .filter(pokemon => pokemon.name.toUpperCase().includes(inputPokemon.toUpperCase()))
+          {pokemonsFilter
           .map(pokemon =>{
             return(
 
