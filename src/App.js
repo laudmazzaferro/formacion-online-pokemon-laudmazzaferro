@@ -13,7 +13,7 @@ class App extends React.Component{
     super(props);
     this.state={
       pokemons:[],
-      inputPokemon:''
+      inputPokemon:'',
     }
     this.getPokemons=this.getPokemons.bind(this);
     this.getInputPokemon= this.getInputPokemon.bind(this);
@@ -39,6 +39,8 @@ class App extends React.Component{
     })
   }
 
+
+
   getInputPokemon(event){
     const newInput= event.currentTarget.value;
     this.setState({
@@ -63,10 +65,11 @@ class App extends React.Component{
             );
             }}
           />
-          <Route path="/pokemon-detail/:chapId" render={routerProps => {
+          <Route path="/pokemon-detail/:pokeId" render={routerProps => {
             return (
               <PokemonDetail 
-
+              routerProps={routerProps}
+              pokemons={pokemons}
               />
             
             );
