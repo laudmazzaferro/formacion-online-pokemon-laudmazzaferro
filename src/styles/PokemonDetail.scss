@@ -1,4 +1,14 @@
 .container__detail{
-    margin: 0 auto;
-    width: 500px;
+  margin: 0 auto;
+  width: 300px;
+  background-color: rgb(254, 229,89);
+  @media all and (min-width:600px) {
+    width: 500px; 
+  }
+  @media all and (min-width:800px) {
+    width: 700px;
+  }
+  @media all and (min-width:1200px) {
+    width: 900px;  
+  }
 }
