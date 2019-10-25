@@ -30,4 +30,8 @@ class Pokemon extends React.Component {
   }
 }
 
+Pokemon.propTypes = {
+  pokemon: PropTypes.object.isRequired
+};
+
 export default Pokemon;

@@ -25,12 +25,15 @@ class PokemonList extends React.Component {
             );
           })}
         </ul>
-        
-        
       </div>
     );
 
   }
 }
+
+PokemonList.propTypes = {
+  pokemons: PropTypes.array.isRequired,
+  inputPokemon:PropTypes.string.isRequired
+};
 
 export default PokemonList;

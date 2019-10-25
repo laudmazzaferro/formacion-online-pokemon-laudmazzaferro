@@ -9,7 +9,6 @@ class PokemonDetail extends React.Component {
     const pokeId = parseInt(routerProps.match.params.pokeId);
     const pokemon = pokemons.find(item => item.id === pokeId); 
     if(pokemon){
-      //const { name , abilities , weight , height ,sprites} = pokemon;
       return (
         <div className="container__detail">
         <div className="photo-id__container">
@@ -50,6 +49,11 @@ class PokemonDetail extends React.Component {
     }
     
   };
+};
+
+PokemonDetail.propTypes = {
+  routerProps:PropTypes.object.isRequired,
+  pokemons: PropTypes.array.isRequired
 };
 
 export default PokemonDetail;

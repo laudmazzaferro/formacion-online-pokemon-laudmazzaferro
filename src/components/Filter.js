@@ -16,4 +16,8 @@ class Filter extends React.Component {
   }
 }
 
+Filter.propTypes = {
+  getInputPokemon:PropTypes.func.isRequired
+};
+
 export default Filter;
