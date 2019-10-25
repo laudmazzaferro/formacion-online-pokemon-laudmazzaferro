@@ -35,7 +35,7 @@ class PokemonDetail extends React.Component {
               )
             })}
           </ul>
-          <Link to='/' >volver</Link>
+          <Link to='/' >Volver</Link>
         </div>
         </div>
       );
@@ -43,7 +43,7 @@ class PokemonDetail extends React.Component {
       return (
         <div>
           pokemon no encontrado
-          <Link to='/' >volver</Link>
+          <Link to='/' >Volver</Link>
         </div>
       );
     }
