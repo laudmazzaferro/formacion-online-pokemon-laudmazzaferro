@@ -4,6 +4,35 @@ import {Link} from 'react-router-dom';
 import './../styles/PokemonDetail.scss';
 
 class PokemonDetail extends React.Component {
+  constructor(props){
+    super(props);
+    this.state={
+      pokemonEvolution:''
+    }
+    this.getEvolution=this.getEvolution.bind(this);
+  }
+  componentDidMount(){
+    this.getEvolution()
+  }
+
+  getEvolution(){
+    const pokeId = parseInt(this.props.routerProps.match.params.pokeId);
+    fetch(`https://pokeapi.co/api/v2/pokemon-species/${pokeId}`)
+    .then(response => response.json())
+    .then(info => {
+      if(info.evolves_from_species===null){
+        this.setState({
+          pokemonEvolution:'None'
+        })
+      }else{
+        this.setState({
+          pokemonEvolution:info.evolves_from_species.name
+        })
+      }
+    });
+  }
+
+
   render() {
     const { routerProps , pokemons } = this.props;
     const pokeId = parseInt(routerProps.match.params.pokeId);
@@ -31,12 +60,14 @@ class PokemonDetail extends React.Component {
             Abilities
             {pokemon.abilities.map(ab=>{
               return(
-                <li className="pokemon__type--item">{ab.ability.name}</li>
+                <li key={ab.ability.name} className="pokemon__type--item">{ab.ability.name}</li>
               )
             })}
           </ul>
+          <h3 >Evolution: {this.state.pokemonEvolution}</h3>
           <Link to='/' >Volver</Link>
         </div>
+        
         </div>
       );
     }else{
