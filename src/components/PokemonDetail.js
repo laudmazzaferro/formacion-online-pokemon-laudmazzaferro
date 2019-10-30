@@ -16,8 +16,7 @@ class PokemonDetail extends React.Component {
   }
 
   getEvolution(){
-    const pokeId = parseInt(this.props.routerProps.match.params.pokeId);
-    fetch(`https://pokeapi.co/api/v2/pokemon-species/${pokeId}`)
+    fetch(`https://pokeapi.co/api/v2/pokemon-species/${this.props.pokemon.id}`)
     .then(response => response.json())
     .then(info => {
       if(info.evolves_from_species===null){
@@ -34,9 +33,7 @@ class PokemonDetail extends React.Component {
 
 
   render() {
-    const { routerProps , pokemons } = this.props;
-    const pokeId = parseInt(routerProps.match.params.pokeId);
-    const pokemon = pokemons.find(item => item.id === pokeId); 
+    const { pokemon } = this.props;
     if(pokemon){
       return (
         <div className="container__detail">
@@ -65,7 +62,7 @@ class PokemonDetail extends React.Component {
             })}
           </ul>
           <h3 >Evolution: {this.state.pokemonEvolution}</h3>
-          <Link to='/' >Volver</Link>
+          <Link to='/' >Return</Link>
         </div>
         
         </div>
@@ -73,8 +70,8 @@ class PokemonDetail extends React.Component {
     }else{
       return (
         <div>
-          pokemon no encontrado
-          <Link to='/' >Volver</Link>
+          Pokemon not found
+          <Link to='/' >Return</Link>
         </div>
       );
     }

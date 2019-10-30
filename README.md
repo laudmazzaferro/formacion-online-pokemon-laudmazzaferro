@@ -1,3 +1,10 @@
+
+Web application of search of pokemons, with the list of 25 pokemons which are identified by name, id, image, and types.
+
+It has the functionality to filter the list of pokemons by name in case you don't want to see them all at once.
+
+
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
