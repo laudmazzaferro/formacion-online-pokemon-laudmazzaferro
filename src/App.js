@@ -1,5 +1,5 @@
 import React from 'react';
-import {Switch , Route} from 'react-router-dom';
+import { Switch , Route , Redirect } from 'react-router-dom';
 import {fetchPokemons} from './services/fetchPokemons';
 import Filter from './components/Filter';
 import PokemonsList from './components/PokemonsList';

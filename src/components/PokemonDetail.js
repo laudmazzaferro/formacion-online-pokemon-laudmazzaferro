@@ -80,8 +80,7 @@ class PokemonDetail extends React.Component {
 };
 
 PokemonDetail.propTypes = {
-  routerProps:PropTypes.object.isRequired,
-  pokemons: PropTypes.array.isRequired
+  pokemon: PropTypes.object.isRequired
 };
 
 export default PokemonDetail;
